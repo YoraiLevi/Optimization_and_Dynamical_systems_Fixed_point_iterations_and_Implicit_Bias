@@ -1,0 +1,110 @@
+https://www.youtube.com/watch?v=BHXGOmPQMEg Implicit Regularization: Lectures from TTIC31230.  Slides and additional material (like EDF) can be found at https://mcallester.github.io/ttic-31230/
+    does the algoritm has a "bias" towards specific solutions?
+    *linear regression: SGD converges to minimum norm solution 
+    SGD [Model, Init value, train-data] + noise (https://www.youtube.com/watch?v=t5GBuBD0ibc PAC-Bayes?) 
+
+https://www.youtube.com/watch?v=Gpo2Xl9WIhE&list=PLVYTJAasVdWwqIOgf-Lz7GPAgoKBADNyi&index=12 - The Learning Rate as Temperature
+    "Temperature" = BatchSize * learningRate
+
+
+
+https://scholar.google.com/citations?user=ZnT-QpMAAAAJ&hl=en - Nathan Srebro
+https://www.youtube.com/watch?v=YwX44phI_gc - Optimization's Untold Gift to Learning: Implicit Regularization
+    https://simons.berkeley.edu/talks/optimizations-untold-gift-learning-implicit-regularization
+    1:00 references list
+    4:00 large networks should overfit and diverge?
+    5:00 but in practice they keep improving with network size
+    6:00 given regularization we expect this kind of behavior, but we haven't done any regularization? or have we?
+    7:00 relation to boosting, the boosting optimization algoritm increases the "l1 margin -> 1, lower complexity model" and explains why boosting improves over more training.
+    11:20 furbious norm is a "bad" norm for indicating model complexity
+    16:00 plot of solutions Pathnorm vs Test error at 0 training error, what's being optimized?
+    17:32 mirror descent?? inductive bias??
+    18:32 algoritm -> bias -> generalization properties rather than bias from model class.
+    19:32 path-sgd finds better minima for test?
+    20:44 adam vs sgd: sgd wins in test loss
+    23:00 critisim of traditional optimizations that do not include the optimization algoritm as a detail
+    27:00 example of under detemined ||Aw-b||^2 with sgd corges to least norm solution
+    32:00 matrix factorization as a simpler deep learning results - comparison of test error with different algoritms and initializations 
+    52:00 logistic regression converges in direction for any monotonocally stricly decreasing s.t -l'(z) with "exponential tail"
+    55:00 softmax-esque losses converge "extremely" slow to the max margin, "over-training" is beneficial and decreases test error but the validation loss increases!
+    59:49 for least squares (or any other loss with attainable minimum)
+        w_inf depents on w_0 and stepsize
+        to get clear characterization need to take stepsize -> 0
+        if 0 is a saddle point, need to take w_0 -> 0
+        for monotone decreasing loss (logistic):
+        w_inf does not depent on w_0 and stepsize
+        no need for stepsize, w_0 -> 0
+        what happens at the beginning doesn't effect w_inf
+
+https://www.youtube.com/watch?v=7uRVR9hsF0g - Implicit Regularization I
+    "The details of the solution are not given by the model because the model can fit any function but its given by the optimization algoritm"
+    30:13 contrained problem and regularization could be viewed the same way
+    39:20 sgd vs sgd+projection
+    40:30 sgd doesn't find the empirical risk minimizer but something that minimizes just as well (in the neightborhood of w*)
+    43:40 sgd optimizes for l2 because: (slide) we don't step too far from the current iteration
+    46:24 dual averaging / mirror descent 
+    48:30 mirror descent 2nd order approximation -> "natural gradient descent", gradient descent with inverse hessian?
+        ode -> discretize -> mirror descent or natural descent
+    1:04:10 if you choose psi = f then these method are just newton method. in a sense we are searching for a psi with "good geometry"
+    1:10:10 what psi for what implicit bias?
+    1:11:47 steepest descent with respect to delta(w',w)
+            coordinate descent
+            sign gradient "descent"
+    1:14:00 different perspective of the talk (summary)
+
+
+https://www.youtube.com/watch?v=IkuOmf7ey14 - Implicit Regularization II
+    2:40 gradient descent converges to norm2 solution for least squares, proof? kkt condition for implicit problem? "flat manifold"?
+    8:30 mirror decent and natural gradient decent converges to min psi
+    11:08 square loss - dagrad/adam sometimes inf norm, steepest descent, coordinate descent (related to Lasso)
+    16:41 logistic loss - weights diverge for the logistic loss, so does their norm... we care about the direction (normalized weights) -> max margin svm
+    21:00 converges for any initializations. 
+    23:48 proof
+    24:43 the margin is maximized slowly, logaritmically.
+    30:35 it's easier to analyze logistic (tailed losess) is because the minima is at infinity, so the initial conditions are irrelevant long term
+    36:00 bias in general? interpolation leaning? early stopping? 
+    36:40 optimization path vs regularization path for problems with ||^2
+    42:00 36:00 slide
+    46:40 matrix factorization
+    55:23 over parametarized linear network (svm)
+    58:23 conerges to solution in frequency?
+    1:01:00 parametarization of the model (function calss) changes the bias?
+    1:06:00 how does the parametarization of the function class affect the solutions
+    1:08:00 (D-)Homogenious models -> l2 norm?
+    1:10:47 gd is l2 bias + map to func space?
+    1:13:20 deep learning boils down to svm with complex kernels?
+    1:17:40 initialization changes the implicit bias - interplation between kernel and deep
+
+https://www.youtube.com/watch?v=NeTUt5TJOiY - Tutorial: Implicit Bias I
+https://www.youtube.com/watch?v=8mO1CFfpbRE - Tutorial: Implicit Bias II
+    
+
+noam thinks:
+    gradient decent that follows kanyons?
+    gradient decent that only goes to local minima?
+    gradient decent biases to continous domain?
+    bias in the observability "control theory" - if you measure only position, you're stuck at 3; position + velocity provides more dimentions
+    top 3 eigen vectors but not 5?
+
+
+order:
+    Intro to optimization
+    Gradient decent, newton fractals
+    Optimizers
+    Contrained optimization
+    Implicit Bias
+
+playful game of search?
+
+
+https://www.youtube.com/watch?v=pZnZSxOttN0 - On the Origin of Implicit Regularization in Stochastic Gradient Descent
+implicit regularization as a result of ODE solution
+
+
+https://www.math.stonybrook.edu/~scott/Papers/India/Fatou-Julia.pdf - AN INTRODUCTION TO JULIA AND FATOU SETS
+    visualization of fatou and julia in complex 
+     
+
+
+
+
